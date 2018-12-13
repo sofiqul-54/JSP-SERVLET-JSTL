@@ -1,30 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sofiqul54;
 
 import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * Simple bean wrapper around a Calendar to enable the manipulation
+ * via JSTL tag.
  *
- * @author User
+ * @author  Dan Jepp
  */
 public class CalendarBean {
+
     private Calendar calendar;
 
     public CalendarBean() {
         calendar = Calendar.getInstance();
     }
-    
-    public Date getTime(){
+
+    public Date getTime() {
         return calendar.getTime();
-    
     }
-    
-     public int getHour() {
+
+    public int getHour() {
       return calendar.get(Calendar.HOUR_OF_DAY);
     }
 

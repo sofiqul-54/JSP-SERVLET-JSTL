@@ -15,6 +15,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello Java Programmers!!</h1>
+        Time is Currently : <br><br>
+        <c:out value="${cal.time}"/>,
+        <c:set var="hour" value="${cal.hour}" scope="request"/>
+        <b>
+            <c:if test="${hour >= 0 && hour <=11}">
+            Good Morning!!
+            </c:if>
+            <c:if test="${hour >=12 && hour <=17}">
+                God Afternoon!!
+            </c:if>
+                <c:if test="${hour>=18 && hour <=23}">
+                Good Evining!!
+            </c:if>
+        </b>
+            
     </body>
 </html>
