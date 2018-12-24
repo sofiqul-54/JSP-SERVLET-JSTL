@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCyclesalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{cyclesalesController.selected.id}" title="#{bundle.CreateCyclesalesTitle_id}" required="true" requiredMessage="#{bundle.CreateCyclesalesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_cname}" for="cname" />
+                    <h:inputText id="cname" value="#{cyclesalesController.selected.cname}" title="#{bundle.CreateCyclesalesTitle_cname}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_pname}" for="pname" />
+                    <h:inputText id="pname" value="#{cyclesalesController.selected.pname}" title="#{bundle.CreateCyclesalesTitle_pname}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_PCode}" for="PCode" />
+                    <h:inputText id="PCode" value="#{cyclesalesController.selected.PCode}" title="#{bundle.CreateCyclesalesTitle_PCode}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_quantity}" for="quantity" />
+                    <h:inputText id="quantity" value="#{cyclesalesController.selected.quantity}" title="#{bundle.CreateCyclesalesTitle_quantity}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_unitPrice}" for="unitPrice" />
+                    <h:inputText id="unitPrice" value="#{cyclesalesController.selected.unitPrice}" title="#{bundle.CreateCyclesalesTitle_unitPrice}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_totalPrice}" for="totalPrice" />
+                    <h:inputText id="totalPrice" value="#{cyclesalesController.selected.totalPrice}" title="#{bundle.CreateCyclesalesTitle_totalPrice}" />
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_salesDate}" for="salesDate" />
+                    <h:inputText id="salesDate" value="#{cyclesalesController.selected.salesDate}" title="#{bundle.CreateCyclesalesTitle_salesDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCyclesalesLabel_PId}" for="PId" />
+                    <h:selectOneMenu id="PId" value="#{cyclesalesController.selected.PId}" title="#{bundle.CreateCyclesalesTitle_PId}" >
+                        <f:selectItems value="#{cyclepurchaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cyclesalesController.create}" value="#{bundle.CreateCyclesalesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cyclesalesController.prepareList}" value="#{bundle.CreateCyclesalesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCyclesalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePurchasesalessummaryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{purchasesalessummaryController.selected.id}" title="#{bundle.CreatePurchasesalessummaryTitle_id}" required="true" requiredMessage="#{bundle.CreatePurchasesalessummaryRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{purchasesalessummaryController.selected.name}" title="#{bundle.CreatePurchasesalessummaryTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_PCode}" for="PCode" />
+                    <h:inputText id="PCode" value="#{purchasesalessummaryController.selected.PCode}" title="#{bundle.CreatePurchasesalessummaryTitle_PCode}" />
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_totalQuantity}" for="totalQuantity" />
+                    <h:inputText id="totalQuantity" value="#{purchasesalessummaryController.selected.totalQuantity}" title="#{bundle.CreatePurchasesalessummaryTitle_totalQuantity}" />
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_soldQuantity}" for="soldQuantity" />
+                    <h:inputText id="soldQuantity" value="#{purchasesalessummaryController.selected.soldQuantity}" title="#{bundle.CreatePurchasesalessummaryTitle_soldQuantity}" />
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_availableQuantity}" for="availableQuantity" />
+                    <h:inputText id="availableQuantity" value="#{purchasesalessummaryController.selected.availableQuantity}" title="#{bundle.CreatePurchasesalessummaryTitle_availableQuantity}" />
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_lastUpdate}" for="lastUpdate" />
+                    <h:inputText id="lastUpdate" value="#{purchasesalessummaryController.selected.lastUpdate}" title="#{bundle.CreatePurchasesalessummaryTitle_lastUpdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePurchasesalessummaryLabel_PId}" for="PId" />
+                    <h:selectOneMenu id="PId" value="#{purchasesalessummaryController.selected.PId}" title="#{bundle.CreatePurchasesalessummaryTitle_PId}" >
+                        <f:selectItems value="#{cyclepurchaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{purchasesalessummaryController.create}" value="#{bundle.CreatePurchasesalessummarySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{purchasesalessummaryController.prepareList}" value="#{bundle.CreatePurchasesalessummaryShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePurchasesalessummaryIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

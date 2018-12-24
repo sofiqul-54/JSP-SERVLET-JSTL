@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCyclepurchaseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCyclepurchaseEmpty}" rendered="#{cyclepurchaseController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cyclepurchaseController.items.rowCount > 0}">
+                    <h:outputText value="#{cyclepurchaseController.pagination.pageFirstItem + 1}..#{cyclepurchaseController.pagination.pageLastItem + 1}/#{cyclepurchaseController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cyclepurchaseController.previous}" value="#{bundle.Previous} #{cyclepurchaseController.pagination.pageSize}" rendered="#{cyclepurchaseController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cyclepurchaseController.next}" value="#{bundle.Next} #{cyclepurchaseController.pagination.pageSize}" rendered="#{cyclepurchaseController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cyclepurchaseController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_PCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.PCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_quantity}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantity}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_unitPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unitPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_totalPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.totalPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclepurchaseTitle_purchaseDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.purchaseDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cyclepurchaseController.prepareView}" value="#{bundle.ListCyclepurchaseViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cyclepurchaseController.prepareEdit}" value="#{bundle.ListCyclepurchaseEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cyclepurchaseController.destroy}" value="#{bundle.ListCyclepurchaseDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cyclepurchaseController.prepareCreate}" value="#{bundle.ListCyclepurchaseCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCyclepurchaseIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

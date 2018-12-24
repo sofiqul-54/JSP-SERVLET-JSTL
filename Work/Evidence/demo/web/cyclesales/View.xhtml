@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCyclesalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_id}"/>
+                    <h:outputText value="#{cyclesalesController.selected.id}" title="#{bundle.ViewCyclesalesTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_cname}"/>
+                    <h:outputText value="#{cyclesalesController.selected.cname}" title="#{bundle.ViewCyclesalesTitle_cname}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_pname}"/>
+                    <h:outputText value="#{cyclesalesController.selected.pname}" title="#{bundle.ViewCyclesalesTitle_pname}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_PCode}"/>
+                    <h:outputText value="#{cyclesalesController.selected.PCode}" title="#{bundle.ViewCyclesalesTitle_PCode}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_quantity}"/>
+                    <h:outputText value="#{cyclesalesController.selected.quantity}" title="#{bundle.ViewCyclesalesTitle_quantity}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_unitPrice}"/>
+                    <h:outputText value="#{cyclesalesController.selected.unitPrice}" title="#{bundle.ViewCyclesalesTitle_unitPrice}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_totalPrice}"/>
+                    <h:outputText value="#{cyclesalesController.selected.totalPrice}" title="#{bundle.ViewCyclesalesTitle_totalPrice}"/>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_salesDate}"/>
+                    <h:outputText value="#{cyclesalesController.selected.salesDate}" title="#{bundle.ViewCyclesalesTitle_salesDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCyclesalesLabel_PId}"/>
+                    <h:outputText value="#{cyclesalesController.selected.PId}" title="#{bundle.ViewCyclesalesTitle_PId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cyclesalesController.destroyAndView}" value="#{bundle.ViewCyclesalesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCyclesalesEditLink}"/>
+                <br />
+                <h:commandLink action="#{cyclesalesController.prepareCreate}" value="#{bundle.ViewCyclesalesCreateLink}" />
+                <br />
+                <h:commandLink action="#{cyclesalesController.prepareList}" value="#{bundle.ViewCyclesalesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCyclesalesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

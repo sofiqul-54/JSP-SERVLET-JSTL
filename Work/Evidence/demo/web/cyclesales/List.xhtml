@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCyclesalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCyclesalesEmpty}" rendered="#{cyclesalesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cyclesalesController.items.rowCount > 0}">
+                    <h:outputText value="#{cyclesalesController.pagination.pageFirstItem + 1}..#{cyclesalesController.pagination.pageLastItem + 1}/#{cyclesalesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cyclesalesController.previous}" value="#{bundle.Previous} #{cyclesalesController.pagination.pageSize}" rendered="#{cyclesalesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cyclesalesController.next}" value="#{bundle.Next} #{cyclesalesController.pagination.pageSize}" rendered="#{cyclesalesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cyclesalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_cname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_pname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_PCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.PCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_quantity}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantity}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_unitPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unitPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_totalPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.totalPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_salesDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.salesDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCyclesalesTitle_PId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.PId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cyclesalesController.prepareView}" value="#{bundle.ListCyclesalesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cyclesalesController.prepareEdit}" value="#{bundle.ListCyclesalesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cyclesalesController.destroy}" value="#{bundle.ListCyclesalesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cyclesalesController.prepareCreate}" value="#{bundle.ListCyclesalesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCyclesalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
