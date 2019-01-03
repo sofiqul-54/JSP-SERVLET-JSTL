@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout2.html}">
+
+<head>
+    <title>Nominee Create</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="row">
+
+
+        <div class="col-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Nominee</h4>
+
+                    <form class="forms-sample" th:object="${obj}" method="post"
+                          th:action="@{/nominee/create.jsf}">
+                        <div class="form-group row">
+                            <label for="nomineeName" class="col-sm-3 col-form-label">Nominee Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="nomineeName" th:field="*{nomineeName}"
+                                       required  placeholder="Enter nominee Name">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mobile" class="col-sm-3 col-form-label">Mobile No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="mobile" th:field="*{mobile}"
+                                       required  placeholder="Enter Mobile No">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dateOfBirth" class="col-sm-3 col-form-label">Dob</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}"
+                                      required  placeholder="Enter DOb">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nationalId" class="col-sm-3 col-form-label">NID No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="nationalId" th:field="*{nationalId}"
+                                       required  placeholder="Enter NID No">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                              Male:  <input type="radio" class="form-control"  name="gender" th:field="*{gender}" th:value="male" />
+                              Female: <input type="radio" class="form-control"  name="gender" th:field="*{gender}" th:value="female"/>
+
+                            </div>
+                        </div>
+
+
+
+                        <button class="btn btn-success mr-2 float-right">Submit</button>
+                        <button type="submit" class="btn btn-light mr-2 float-right">Reset</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

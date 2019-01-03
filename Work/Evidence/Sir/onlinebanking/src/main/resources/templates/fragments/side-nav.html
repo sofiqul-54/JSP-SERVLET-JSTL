@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <body>
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" th:fragment="side-navbar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:href="@{/}">
+                        <span class="menu-title">Dashboard</span>
+                        <!--<span class="menu-sub-title">( 2 new updates )</span>-->
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#accountType" aria-expanded="false" aria-controls="accountType">
+                        <span class="menu-title">Account Type</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="accountType">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/account-type/create.jsf}" href="/account-type/create.jsf">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/account-type/list.jsf}" href="/account-type/list.jsf">List</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#Nominee" aria-expanded="false" aria-controls="Nominee">
+                        <span class="menu-title">Nominee</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="Nominee">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/nominee/create.jsf}" href="/nominee/create.jsf">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/nominee/list.jsf}" href="/nominee/list.jsf">List</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#Account" aria-expanded="false" aria-controls="Account">
+                        <span class="menu-title">Account</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="Account">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/account/create.jsf}" href="/account/create.jsf">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/account/list.jsf}" href="/account/list.jsf">List</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </body>
+
+</html>
