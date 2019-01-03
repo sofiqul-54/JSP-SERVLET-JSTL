@@ -11,12 +11,23 @@
         <h1>Please login</h1>
 
         <form action="loginAuthenticate.jsp" >
-            Username: <input type="text" name="username"/><br/>
-            Password: <input type="password" name="password"/><br/>
-            <input type="submit" value="Login"/>
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username"/></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login"/></td>
+                </tr>
+            </table>
         </form>
         <font color="red"><c:if test="${not empty param.errMsg}">
             <c:out value="${param.errMsg}" />
-            </c:if></font>
+        </c:if></font>
     </body>
 </html>
