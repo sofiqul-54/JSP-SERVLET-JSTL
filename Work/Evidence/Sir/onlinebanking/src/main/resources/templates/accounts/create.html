@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout2.html}">
+
+<head>
+    <title>Account Create</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="row">
+
+
+        <div class="col-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Account</h4>
+
+                    <form class="forms-sample" th:object="${obj}" method="post"
+                          th:action="@{/account/create.jsf}">
+                        <div class="form-group row">
+                            <label for="accountHolderName" class="col-sm-3 col-form-label">Account Type</label>
+                            <div class="col-sm-9">
+                             <select th:field="*{accountType}">
+                                 <option th:each="tyyy : ${accounttypelist}" th:value="${tyyy.id}"><span th:text="${tyyy.typeName}"></span></option>
+                             </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="accountHolderName" class="col-sm-3 col-form-label">Nominee Name</label>
+                            <div class="col-sm-9">
+                                <select th:field="*{nominees}" multiple>
+                                    <option th:each="nn : ${nomnieelist}" th:value="${nn.id}"><span th:text="${nn.nomineeName}"></span></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                        <label for="accountHolderName" class="col-sm-3 col-form-label">AccountHolder Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="accountHolderName" th:field="*{accountHolderName}"
+                                   required  placeholder="Enter nominee Name">
+
+                        </div>
+                    </div>
+
+                        <div class="form-group row">
+                            <label for="accountNumber" class="col-sm-3 col-form-label">Account No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="accountNumber" th:field="*{accountNumber}"
+                                       required  placeholder="Enter Mobile No">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dateOfBirth" class="col-sm-3 col-form-label">Dob</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="dateOfBirth" th:field="*{bithDate}"
+                                      required  placeholder="Enter DOb">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nationalId" class="col-sm-3 col-form-label">NID No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="nationalId" th:field="*{nationalId}"
+                                       required  placeholder="Enter NID No">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                              Male:  <input type="radio" class="form-control"  name="gender" th:field="*{gender}" th:value="male" />
+                              Female: <input type="radio" class="form-control"  name="gender" th:field="*{gender}" th:value="female"/>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-3 col-form-label">Email No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="email" th:field="*{email}"
+                                       required  placeholder="Enter Email No">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mobile" class="col-sm-3 col-form-label">Mobile No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="mobile" th:field="*{mobile}"
+                                       required  placeholder="Enter Email No">
+
+                            </div>
+                        </div>
+                        <button class="btn btn-success mr-2 float-right">Submit</button>
+                        <button type="submit" class="btn btn-light mr-2 float-right">Reset</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
