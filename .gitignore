@@ -79,9 +79,22 @@
 /Work/Evidence/evidence02/build/
 /Work/Evidence/demo/nbproject/private/
 /Work/Evidence/demo/build/
+<<<<<<< HEAD
 /Work/Evidence/login03/nbproject/private/
 /Work/Evidence/login03/build/
 /Work/Evidence/login04/nbproject/private/
 /Work/Evidence/login04/dist/
 /Work/Evidence/login04/build/
 /Work/Evidence/form01/nbproject/private/
+=======
+/Work/Evidence/Sir/jstlLogin1/build/
+/Work/Evidence/jstlLogin/nbproject/private/
+/Work/Evidence/jstlLogin/build/
+/Work/Evidence/form/nbproject/private/
+/Work/Evidence/jsfForm/nbproject/private/
+/Work/Evidence/jsfForm/build/
+/Work/Evidence/hibernateForm/nbproject/private/
+/Work/Evidence/hibernateForm/build/
+/Work/chapter-09/jsfhibernate/nbproject/private/
+/Work/chapter-09/jsfhibernate/build/
+>>>>>>> 63cb70dae86fd76d8b302df3d11f8ac58ee8588f
