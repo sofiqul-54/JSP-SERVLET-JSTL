@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            .mm{
+              color: blue;
+              background-color: pink;
+              
+                
+            }
+            
+        </style>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form class="">
+            <h:commandButton action="index.xhtml" value="Go Home Page"/>
+            <h:commandButton action="edit.xhtml" value="Go Update Page"/>
+            <h:commandButton action="delete.xhtml" value="Go Delete Page"/>
+            <h:panelGrid columns="2">
+
+                <h:outputLabel>ID: </h:outputLabel>
+                <h:inputText value="#{studentbean.student.id}"></h:inputText>
+
+
+                <h:outputLabel>Name: </h:outputLabel>
+                <h:inputText value="#{studentbean.student.name}"></h:inputText>
+
+                <h:outputLabel>Round:</h:outputLabel>
+                <h:selectOneMenu value="#{studentbean.student.round}">
+                    <f:selectItem itemValue="Null" itemLabel="Select The Round"/>
+                    <f:selectItem itemValue="37" itemLabel="Round-37"/>
+                    <f:selectItem itemValue="38" itemLabel="Round-38"/>
+                    <f:selectItem itemValue="39" itemLabel="Round-39"/>
+
+                </h:selectOneMenu>
+
+
+
+                <h:outputLabel>Course: </h:outputLabel>
+                <h:selectManyCheckbox value="#{studentbean.ccompleted}">
+                    <f:selectItem itemValue="ppt" itemLabel="PPT"/>
+                    <f:selectItem itemValue="java" itemLabel="Java"/>
+                    <f:selectItem itemValue="html" itemLabel="HTML"/>
+                    <f:selectItem itemValue="js" itemLabel="JavaScript"/>
+
+                </h:selectManyCheckbox>
+
+
+                <h:outputLabel>Gender: </h:outputLabel>
+                <h:selectOneRadio value="#{studentbean.student.gender}">
+                    <f:selectItem itemValue="male" itemLabel="Male"/>
+                    <f:selectItem itemValue="female" itemLabel="Female"/>
+
+                </h:selectOneRadio>
+
+                <h:commandButton action="#{studentbean.seve()}" value="Update"/>
+                <h:commandButton action="#{studentbean.reset()}" value="Reset"/>
+
+            </h:panelGrid>
+
+
+
+
+        </h:form>
+
+        <br/>
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br/><br/>
+        <p:dataTable var="s" value="#{studentbean.list}">
+            <p:column headerText="ID">
+                <h:outputText value="#{s.id}"/>
+            </p:column> 
+
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"/>
+            </p:column> 
+
+
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"/>
+            </p:column> 
+
+
+            <p:column headerText="Course">
+                <h:outputText value="#{s.coruseCompleted}"/>
+            </p:column> 
+
+
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"/>
+            </p:column> 
+        </p:dataTable>
+
+    </h:body>
+</html>
+
